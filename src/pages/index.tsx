@@ -17,8 +17,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <span>You are few days too early.</span>
-        <button className={"button"} onClick={() => router.push("http://www.reddit.com/r/indiancelebforum")}>Go to subreddit</button>
+        <h1>Welcome</h1>
+        <h2>Work still being done on UI.</h2>
+        <input type="button" onClick={() => router.push("/gallery/UHQ")} value="UHQ Gallery" />
+        <input type="button" onClick={() => router.push("http://www.reddit.com/r/indiancelebforum")} value="Go to subreddit" />
       </main>
     </>
   )
