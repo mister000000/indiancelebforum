@@ -1,8 +1,18 @@
 import React from 'react'
-import NextImage from 'next/image'
 import NextLink from 'next/link'
 import NextHead from 'next/head'
 import ImageComponent from '@/components/ImageComponent'
+
+interface ImageDetails {
+    name: string;
+    alt: string;
+    src: string;
+    caption: string;
+    type: string;
+    actress: string;
+    date: string;
+    enhanced: boolean;
+  }
 
 
 /**
@@ -18,7 +28,7 @@ import ImageComponent from '@/components/ImageComponent'
 const Index = () => {
 
     // State variables to store file names and window width
-    const [fileNames, setFileNames] = React.useState<string[]>([]);
+    const [fileNames, setFileNames] = React.useState<ImageDetails[]>([]);
     const [width, setWidth] = React.useState<number>(0)
 
     // Fetches data from the '/api/GalleryUHQ' endpoint and sets the state of 'fileNames'
@@ -31,8 +41,8 @@ const Index = () => {
         * @return {Promise<void>} A Promise that resolves after data is fetched and state is set.
         */
         const fetchData = async () => {
-            const data = await fetch('/api/GalleryUHQ').then(res => res.json());
-            setFileNames(data.fileNames);
+            const data = await fetch('/api/gallery/uhq').then(res => res.json());
+            setFileNames(data);
         }
         fetchData();
 
@@ -59,12 +69,13 @@ const Index = () => {
                 <div className='gallery'>
                     {
                         // Maps the file names to 'ImageComponent' components
-                        fileNames.length !== 0 && fileNames.map((fileName, index) => {
+                        fileNames.length !== 0 && fileNames.map((image, index) => {
 
                             return (
                                 <ImageComponent
                                     key={index}
-                                    fileName={fileName}
+                                    alt={image.alt}
+                                    src={image.src}
                                     priority={index < 6}
                                     width={(width * 33) / 100}
                                 />

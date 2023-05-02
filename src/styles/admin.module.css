@@ -1,0 +1,54 @@
+.container {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: .5em;
+    margin-top: 1em;
+}
+
+.formControl {
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.button {
+    font-size: 1.5em;
+    padding: 3px;
+}
+
+.span {
+    margin-top: 1em;
+}
+
+.status {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.success {
+    font-family: 'Courier New', Courier, monospace;
+    color: hsl(120, 53%, 55%);
+}
+
+.failure {
+    font-family: 'Courier New', Courier, monospace;
+    color: hsl(0, 92%, 65%);
+}
+
+.padding {
+    padding: 2px;
+}
+
+.margin {
+    margin: 2px;
+}
+

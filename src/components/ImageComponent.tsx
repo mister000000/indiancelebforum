@@ -13,7 +13,8 @@ interface ImageSize {
  * Props for the ImageComponent
  */
 interface ImageComponentProps {
-    fileName: string;
+    src: string;
+    alt: string;
     priority: boolean;
     width: number;
 }
@@ -27,10 +28,12 @@ interface ImageComponentProps {
  * @returns A React component that displays the image
  */
 const ImageComponent = ({
-    fileName,
+    src,
+    alt,
     priority,
     width,
   }: ImageComponentProps): JSX.Element => {
+    console.log(src, alt)
     const [imageSize, setImageSize] = React.useState<ImageSize>({
       width: width ?? 1,
       height: 1,
@@ -50,10 +53,10 @@ const ImageComponent = ({
   
     return (
       <NextImage
-        src={`/UHQ/${fileName}`}
-        alt={`click to open ${fileName}`}
+        src={src}
+        alt={alt}
         className="gallery-item"
-        onClick={() => window.open(`/uhq/${fileName}`)}
+        onClick={() => window.open(src)}
         priority={priority}
         onLoadingComplete={onLoadingComplete}
         width={imageSize.width}
