@@ -7,8 +7,8 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 const createMongoClient = () => {
     // Get the MongoDB connection details from environment variables.
     const uri = process.env.Mongo_URI!;
-    const username = process.env.MONGO_USERNAME!;
-    const password = process.env.MONGO_PASSWORD!;
+    const username = process.env.Mongo_Username!;
+    const password = process.env.Mongo_Password!;
 
     
 
