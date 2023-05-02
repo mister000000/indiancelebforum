@@ -33,7 +33,6 @@ const ImageComponent = ({
     priority,
     width,
   }: ImageComponentProps): JSX.Element => {
-    console.log(src, alt)
     const [imageSize, setImageSize] = React.useState<ImageSize>({
       width: width ?? 1,
       height: 1,
