@@ -10,8 +10,12 @@ const createMongoClient = () => {
     const username = process.env.MONGO_USERNAME!;
     const password = process.env.MONGO_PASSWORD!;
 
+    
+
     // Replace placeholders in the connection string with actual credentials.
     const connectionString = uri.replace('<username>', username).replace('<password>', password);
+
+    console.log({uri, username, password, connectionString});
 
     // Create a new instance of MongoClient with strict server API versioning.
     const mongoClient = new MongoClient(connectionString, {
