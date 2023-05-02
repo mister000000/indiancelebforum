@@ -2,10 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import Mongo from '@/lib/mongo'
 
 const resolve = async (req: NextApiRequest, res: NextApiResponse) => {
-    let page;
-    if (req.query.page !== 'undefined') {
-        page = parseInt(req.query.page as string);
-    } else page = 1;
+    let page = 1
     const client = Mongo();
     try {
         await client.connect();
